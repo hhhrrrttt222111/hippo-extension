@@ -5,15 +5,17 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "set INLINE_RUNTIME_CHUNK=false craco build",
     "preview": "vite preview",
     "build-extension": "yarn build && cp src/manifest.json dist/"
   },
   "dependencies": {
+    "@craco/craco": "^7.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
+    "@types/chrome": "^0.0.228",
     "@types/react": "^18.0.28",
     "@types/react-dom": "^18.0.11",
     "@vitejs/plugin-react": "^3.1.0",
