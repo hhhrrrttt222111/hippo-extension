@@ -8,6 +8,8 @@
   },
   "permissions": [
     "activeTab",
-    "tabs"  
+    "tabs",
+    "storage",
+    "runtime"
   ]
 }
