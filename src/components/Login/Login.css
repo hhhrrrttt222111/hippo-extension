@@ -1,3 +1,170 @@
 .login {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    gap: 1.5rem;
 
+}
+
+.login__header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.login__header h2 {
+    font-family: var(--secondary-font);
+    color: var(--primary-color);
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 2px; 
+}
+
+.login__container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+}
+
+
+.user_auth_form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    width: 100%;
+    font-family: var(--primary-font);
+}
+
+.user_auth_form h2 {
+    font-size: 2.3rem;
+    color: var(--primary-color);
+    font-weight: 500;
+    text-align: center;
+
+}
+
+.user_auth_col {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 0.6rem;
+}
+
+.create__input_div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+    width: 100%;
+}
+
+.create_auth_user {
+    display: flex;
+    flex-direction: column;
+}
+
+.club_auth_details {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 1rem;
+}
+
+.club_auth_user {
+    display: flex;
+    flex-direction: column;
+    font-family: var(--primary-font);
+    font-size: 1rem;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 0.2rem;
+    color: #1F6FAD;
+    font-weight: 400;
+    position: relative;
+}
+
+.auth_label {
+    color: #eba24a;
+    font-family: var(--primary-font);
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+
+.auth__input {
+    background-color: transparent;
+    border: none;
+    caret-color: var(--primary-color);
+    color:  var(--primary-color);
+    font-family: var(--primary-font);
+    font-size: 1.05rem;
+    font-weight: 600;
+    outline: none;
+    width: 100%;
+    border: 2px solid var(--primary-color);
+    border-radius: 10px;
+    gap: 0.125rem;
+    padding: 0.5rem 0.6rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: relative;
+}
+
+.auth__error {
+    font-family: var(--secondary-font);
+    font-style: normal;
+    font-weight: 600;
+    font-size: 0.75rem;
+    color: #f74d4d;
+    outline: none;
+    margin-top: -0.25rem;
+    height: 10px;
+}
+
+.auth_input_eye{
+    position: absolute;
+    right: 9px;
+    cursor: pointer;
+    font-size: 1.25rem;
+    color: var(--primary-color);
+    top: 35px;
+}
+
+.auth__input::placeholder {
+    opacity: 0.5;
+    font-size: 1.05rem;
+}
+
+.reg_login_btns {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+
+}
+
+.club_login_btn {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    align-items: center;
+    gap: 0.6rem;
+}
+.club_login_btn button {
+    outline: none;
+    border: none;
+    padding: 0.5rem 1.25rem;
+    margin-top: 0.25rem;
+    border-radius: 5px;
+    background-color: var(--secondary-color);
+    color: #ffffff;
+    cursor: pointer;
+    font-size: 0.95rem;
 }
