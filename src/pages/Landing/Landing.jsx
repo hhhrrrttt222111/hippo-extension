@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-
+import { Link } from 'react-router-dom';
 import './Landing.css'
 
 function Landing() {
@@ -17,13 +17,26 @@ function Landing() {
             });
           }, 500); 
 
-        console.log(currentTabUrl)
+        // console.log(currentTabUrl)
     }
+
+    const loggedIn = false
 
     return (
         <div className='landing'>
-            <button onClick={handleClick}>click</button>
-            <h2>{currentTabUrl}</h2>
+            <div className='landing__header'>
+                {loggedIn ? (
+                    <h3>Welcome back <br /> <span>Hemanth!</span></h3>
+                ) : (
+                    <>
+                        <h4>Login to continue</h4>
+                        <Link to='/login'>
+                            <button>Login</button>
+                        </Link>
+                    </>
+                )}
+                
+            </div>
         </div>
     )
 }
