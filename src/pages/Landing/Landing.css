@@ -47,3 +47,44 @@
     cursor: pointer;
     font-size: 0.95rem;
 }
+
+.landing__browse {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.landing__browse h4 {
+    font-family: var(--secondary-font);
+    font-size: 1.05rem;
+    font-weight: 700;
+    padding: 1rem;
+}
+
+.landind_deals {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    gap: 2rem;
+    margin-top: 1rem;
+}
+
+.ld_card {
+    width: 200px;
+    height: 90px;
+    padding: 1rem;
+    border-radius: 20px;
+    background-color: #ffffff;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: #f9b056b7 0px 8px 16px -6px, #f9bc71ad 0px 44px 54px -26px, rgb(239, 242, 248) 0px 0px 6px 0px inset, rgb(234, 236, 242) -2px -2px 1px 0px inset, rgba(255, 255, 255, 0.17) 2px 2px 3px 0px inset;
+}
+.ld_card img {
+    width: 80%;
+    pointer-events: none;
+}

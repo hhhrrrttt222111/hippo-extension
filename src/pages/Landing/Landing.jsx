@@ -2,6 +2,9 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom';
 import './Landing.css'
 
+import amazon from '../../assets/svg/amazon.svg'
+import flipkart from '../../assets/svg/flipkart.svg'
+
 function Landing() {
 
     const [currentTabUrl, setCurrentTabUrl] = useState("");
@@ -36,6 +39,17 @@ function Landing() {
                     </>
                 )}
                 
+            </div>
+            <div className='landing__browse'>
+                <h4>Deals of the day</h4>
+                <div className="landind_deals">
+                    <a href='https://www.amazon.in/gp/goldbox?ref_=nav_cs_gb' target='_blank' className='ld_card'>
+                        <img src={amazon} alt="" />
+                    </a>
+                    <a href='https://www.flipkart.com/' target='_blank' className='ld_card'>
+                        <img src={flipkart} alt="" />
+                    </a>
+                </div>
             </div>
         </div>
     )
