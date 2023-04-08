@@ -11,5 +11,11 @@
     "tabs",
     "storage",
     "runtime"
-  ]
+  ],
+  "content_scripts": [
+    {
+      "matches": ["*://*.amazon.com/*"], 
+      "js": ["content.js"]
+    }
+  ]  
 }
