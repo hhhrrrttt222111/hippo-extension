@@ -1,9 +1,11 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import axios from 'axios'
 import { Field, Form, Formik } from 'formik'
 import { BsEyeSlash, BsEye } from "react-icons/bs";
 import { useNavigate } from 'react-router-dom';
 import * as Yup from 'yup';
+
+import { UserContext } from '../../contexts/UserContext';
 
 import './Login.css'
 
@@ -22,6 +24,7 @@ function Login() {
   const [loading, setLoading] = useState(false)
   const [showPass, setShowPass] = useState(false)
 
+  const { updateUser } = useContext(UserContext)
   const navigate = useNavigate();
 
   const toggleShowPass = () => {
@@ -45,12 +48,11 @@ function Login() {
                 setLoading(true)
                 axios.post(`${import.meta.env.VITE_APP_MAIN_API}${USER_LOGIN}`, data)
                 .then((res) => {
+                    console.log(res)
                     setLoading(false)
-                    // updateUser(res.data.id)
-                    // updateUserToken(res.data.user_token)
-                    // updateUserType('user')
+                    updateUser(res.data.data._id)
+                    navigate('/')
                     alert('logged in')
-                    // navigate('/profile')
                 }).catch(err => {
                     setLoading(false)
                     resetForm()
