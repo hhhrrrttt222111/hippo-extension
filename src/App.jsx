@@ -4,6 +4,7 @@ import { MemoryRouter, Routes, Route } from 'react-router-dom';
 import { Navbar, Login } from './components'
 import { Landing } from './pages';
 
+
 import './App.css'
 
 function App() {

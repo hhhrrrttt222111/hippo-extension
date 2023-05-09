@@ -1,6 +1,8 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import { Link } from 'react-router-dom';
 import './Landing.css'
+
+import { UserContext } from '../../contexts/UserContext';
 
 import amazon from '../../assets/svg/amazon.svg'
 import flipkart from '../../assets/svg/flipkart.svg'
@@ -9,27 +11,25 @@ function Landing() {
 
     const [currentTabUrl, setCurrentTabUrl] = useState("");
 
-    const chrome = window.chrome;
+    // const chrome = window.chrome;
 
-    const handleClick = () => {
-        setTimeout(function() {
+    const { user, userName } = useContext(UserContext)
 
-            chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-              const url = tabs[0].url;
-              setCurrentTabUrl(url);
-            });
-          }, 500); 
-
-        // console.log(currentTabUrl)
-    }
-
-    const loggedIn = false
+    // Get the current tab
+    chrome.tabs.query({ currentWindow: true, active: true }, function(tabs) {
+        // Get the HTML code of the current tab
+        chrome.tabs.executeScript(tabs[0].id, { code: 'document.documentElement.outerHTML' }, function(html) {
+        // Log the HTML code to the console
+        console.log(html[0]);
+        });
+    });
+  
 
     return (
         <div className='landing'>
             <div className='landing__header'>
-                {loggedIn ? (
-                    <h3>Welcome back <br /> <span>Hemanth!</span></h3>
+                {user !== 'null' ? (
+                    <h3>Welcome back <br /> <span>{userName}!</span></h3>
                 ) : (
                     <>
                         <h4>Login to continue</h4>

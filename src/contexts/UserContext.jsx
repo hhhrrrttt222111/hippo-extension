@@ -5,7 +5,7 @@ export const UserContext = createContext()
 function UserContextProvider(props) {
 
     const [user, setUser] = useState(localStorage.getItem('userLocal'))
-    const [userToken, setUserToken] = useState(localStorage.getItem('userTokenLocal'))
+    const [userName, setUserName] = useState(localStorage.getItem('userNameLocal'))
 
     console.log(localStorage.getItem('userLocal'))
 
@@ -14,26 +14,26 @@ function UserContextProvider(props) {
         localStorage.setItem("userLocal", u)
     }
 
-    const updateUserToken = (t) => {
-        setUserToken(t)
-        localStorage.setItem("userTokenLocal", t)
+    const updateUserName = (t) => {
+        setUserName(t)
+        localStorage.setItem("userNameLocal", t)
     }
 
     const logoutUser = () => {
         localStorage.removeItem("userLocal")
-        localStorage.removeItem("userTokenLocal")
+        localStorage.removeItem("userNameLocal")
         // window.location.reload()
 
         setUser('')
-        setUserToken('')
+        setUserName('')
     }
 
     useEffect(() => {
-        localStorage.setItem("userTokenLocal", userToken);
+        localStorage.setItem("userNameLocal", userName);
         localStorage.setItem("userLocal", user);
-    }, [userToken, user]);
+    }, [userName, user]);
 
-    const value = { user, userToken, updateUser, updateUserToken, logoutUser }
+    const value = { user, userName, updateUser, updateUserName, logoutUser }
 
     return (
         <UserContext.Provider value={value}>
