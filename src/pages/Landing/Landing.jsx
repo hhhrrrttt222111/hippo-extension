@@ -111,7 +111,7 @@ function Landing() {
 
             {user !== 'null' && (
                 <div className='landing__bookmark'>
-                    {urlSegments[2] === 'www.amazon.in' && (                    
+                    {urlSegments[4] === 'dp' && (                    
                         <form onSubmit={addBookmark} className='bookmark_form'>
                             <h2>{urlSegments[3]}</h2>
                             <input className='addFav__input' valu={minPrice} onChange={(e) => setMinPrice(e.target.value)} type='text' placeholder='Min. Price' />
