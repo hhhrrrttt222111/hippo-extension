@@ -24,18 +24,13 @@ function Login() {
   const [loading, setLoading] = useState(false)
   const [showPass, setShowPass] = useState(false)
 
-  const { updateUser, updateUserName } = useContext(UserContext)
+  const { updateUser, updateUserToken } = useContext(UserContext)
   const navigate = useNavigate();
 
   const toggleShowPass = () => {
     setShowPass(!showPass)
   }
 
-  // Get the HTML data of the current page
-const htmlData = document.documentElement.outerHTML;
-
-// Log the HTML data to the console
-console.log(htmlData);
 
 
   return (
@@ -57,8 +52,8 @@ console.log(htmlData);
                 .then((res) => {
                     console.log(res)
                     setLoading(false)
-                    updateUser(res.data.data._id)
-                    updateUserName(res.data.data.name)
+                    updateUser(res.data.id)
+                    updateUserToken(res.data.token)
                     navigate('/')
                     alert('logged in')
                 }).catch(err => {

@@ -5,6 +5,7 @@ export const UserContext = createContext()
 function UserContextProvider(props) {
 
     const [user, setUser] = useState(localStorage.getItem('userLocal'))
+    const [userToken, setUserToken] = useState(localStorage.getItem('userTokenLocal'))
     const [userName, setUserName] = useState(localStorage.getItem('userNameLocal'))
 
     console.log(localStorage.getItem('userLocal'))
@@ -14,6 +15,10 @@ function UserContextProvider(props) {
         localStorage.setItem("userLocal", u)
     }
 
+    const updateUserToken = (t) => {
+        setUserToken(t)
+        localStorage.setItem("userTokenLocal", t)
+    }
     const updateUserName = (t) => {
         setUserName(t)
         localStorage.setItem("userNameLocal", t)
@@ -33,7 +38,7 @@ function UserContextProvider(props) {
         localStorage.setItem("userLocal", user);
     }, [userName, user]);
 
-    const value = { user, userName, updateUser, updateUserName, logoutUser }
+    const value = { user, userName, userToken, updateUser, updateUserName, updateUserToken, logoutUser }
 
     return (
         <UserContext.Provider value={value}>
