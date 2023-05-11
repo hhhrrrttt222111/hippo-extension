@@ -16,14 +16,21 @@ function Landing() {
     const { user, userName } = useContext(UserContext)
 
     // Get the current tab
-    chrome.tabs.query({ currentWindow: true, active: true }, function(tabs) {
-        // Get the HTML code of the current tab
-        chrome.tabs.executeScript(tabs[0].id, { code: 'document.documentElement.outerHTML' }, function(html) {
-        // Log the HTML code to the console
-        console.log(html[0]);
-        });
+    chrome.tabs.query({
+        active: true,
+        currentWindow: true
+    }, function (tabs) {
+        var tabURL = tabs[0].url;
+        console.log(tabURL)
     });
-  
+    // chrome.tabs.query({ currentWindow: true, active: true }, function (tabs) {
+    //     // Get the HTML code of the current tab
+    //     chrome.tabs.executeScript(tabs[0].id, { code: 'document.documentElement.outerHTML' }, function (html) {
+    //         // Log the HTML code to the console
+    //         console.log(tabs[0].url)
+    //     });
+    // });
+
 
     return (
         <div className='landing'>
@@ -38,7 +45,7 @@ function Landing() {
                         </Link>
                     </>
                 )}
-                
+
             </div>
             <div className='landing__browse'>
                 <h4>Deals of the day</h4>
