@@ -2,7 +2,7 @@ import React, { useState, useContext, useEffect } from 'react'
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import './Landing.css'
-
+import { AmzSearch } from '../../components'
 import { UserContext } from '../../contexts/UserContext';
 
 import amazon from '../../assets/svg/amazon.svg'
@@ -34,7 +34,8 @@ function Landing() {
             console.error(error)
         }
         }
-        getUserProfile()
+        if(user !== 'null')
+            getUserProfile()
     }, [user, userToken])
 
 
@@ -131,6 +132,10 @@ function Landing() {
                         <img src={flipkart} alt="" />
                     </a> */}
                 </div>
+            </div>
+
+            <div className='landing__search'>
+                <AmzSearch />
             </div>
         </div>
     )
