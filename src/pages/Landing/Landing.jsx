@@ -1,6 +1,8 @@
 import React, { useState, useContext, useEffect } from 'react'
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import { AiOutlineUser } from "react-icons/ai";
+
 import './Landing.css'
 import { AmzSearch } from '../../components'
 import { UserContext } from '../../contexts/UserContext';
@@ -104,7 +106,11 @@ function Landing() {
                         </Link>
                     </>
                 )}
-
+                {user && user !== 'null' && (
+                    <a href="https://hippo-project.vercel.app/profile" target='_blank' rel='noreferrer'>
+                        <AiOutlineUser className='profile_icon'/>
+                    </a>
+                )}
             </div>
 
             {user && user !== 'null' && (
