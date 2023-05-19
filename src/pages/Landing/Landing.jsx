@@ -50,8 +50,6 @@ function Landing() {
     });
 
     const urlSegments = tabUrl.split("/");
-    console.log(urlSegments);
-
 
     const addBookmark = (e) => {
 
@@ -93,11 +91,10 @@ function Landing() {
         }
     }
 
-
     return (
         <div className='landing'>
             <div className='landing__header'>
-                {user !== 'null' ? (
+                {user && user !== 'null' ? (
                     <h3>Welcome back <br /> <span>{profile?.name}!</span></h3>
                 ) : (
                     <>
@@ -110,7 +107,7 @@ function Landing() {
 
             </div>
 
-            {user !== 'null' && (
+            {user && user !== 'null' && (
                 <div className='landing__bookmark'>
                     {urlSegments[4] === 'dp' && (                    
                         <form onSubmit={addBookmark} className='bookmark_form'>
@@ -124,7 +121,7 @@ function Landing() {
 
             <div className='landing__browse'>
                 <h4>Deals of the day</h4>
-                <div className="landind_deals">
+                <div className="landing_deals">
                     <a href='https://www.amazon.in/gp/goldbox?ref_=nav_cs_gb' target='_blank' className='ld_card'>
                         <img src={amazon} alt="" />
                     </a>

@@ -10,7 +10,7 @@
     align-items: center;
     justify-content: center;
     width: 100%;
-    height: 100px;
+    height: 80px;
     padding: 1rem 0;
     border-bottom: 2px solid #e7cdae5a;
 }
@@ -121,14 +121,13 @@
     padding: 1rem;
 }
 
-.landind_deals {
+.landing_deals {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     width: 100%;
     gap: 2rem;
-    margin-top: 1rem;
 }
 
 .ld_card {
