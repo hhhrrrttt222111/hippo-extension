@@ -8,7 +8,7 @@ import { AmzSearch } from '../../components'
 import { UserContext } from '../../contexts/UserContext';
 
 import amazon from '../../assets/svg/amazon.svg'
-// import flipkart from '../../assets/svg/flipkart.svg'
+import flipkart from '../../assets/svg/flipkart.svg'
 
 const ADD_BOOKMARK = '/product/add-bookmark'
 
@@ -52,6 +52,8 @@ function Landing() {
     });
 
     const urlSegments = tabUrl.split("/");
+    // console.log(urlSegments)
+    const domain = urlSegments[2]?.split(".")[1]
 
     const addBookmark = (e) => {
 
@@ -62,15 +64,17 @@ function Landing() {
                 id: profile?._id,
                 email: profile?.email
             }
+
+
     
             const data = {
                 userData,
                 productData: {
-                    uid: `amazon-${urlSegments[5].slice(0, 10)}`,
+                    uid: `${domain}-${urlSegments[5].slice(0, 10)}`,
                     name: urlSegments[3],
                     url: tabUrl,
                     min_price: minPrice,
-                    platform: "amazon",
+                    platform: domain,
                     userId: profile?._id,
                 }
             }
@@ -115,7 +119,7 @@ function Landing() {
 
             {user && user !== 'null' && (
                 <div className='landing__bookmark'>
-                    {urlSegments[4] === 'dp' && (                    
+                    {(urlSegments[4] === 'dp' || urlSegments[4] === 'p') && (                    
                         <form onSubmit={addBookmark} className='bookmark_form'>
                             <h2>{urlSegments[3]}</h2>
                             <input className='addFav__input' valu={minPrice} onChange={(e) => setMinPrice(e.target.value)} type='text' placeholder='Min. Price' />
@@ -131,9 +135,9 @@ function Landing() {
                     <a href='https://www.amazon.in/gp/goldbox?ref_=nav_cs_gb' target='_blank' className='ld_card'>
                         <img src={amazon} alt="" />
                     </a>
-                    {/* <a href='https://www.flipkart.com/' target='_blank' className='ld_card'>
+                    <a href='https://www.flipkart.com/' target='_blank' className='ld_card'>
                         <img src={flipkart} alt="" />
-                    </a> */}
+                    </a>
                 </div>
             </div>
 

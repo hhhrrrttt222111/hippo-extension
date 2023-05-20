@@ -133,7 +133,6 @@
 
 .landing_deals {
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
     width: 100%;
@@ -141,8 +140,8 @@
 }
 
 .ld_card {
-    width: 200px;
-    height: 90px;
+    width: 150px;
+    height: 70px;
     padding: 1rem;
     border-radius: 20px;
     background-color: #ffffff;

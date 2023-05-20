@@ -12,8 +12,8 @@ function AmzSearch() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const searchUrl = `https://www.amazon.in/s?k=${searchString}`;
-        // window.location.href = searchUrl;
+        const AmzSearchUrl = `https://www.amazon.in/s?k=${searchString}`;
+        const FlipSearchUrl = `https://www.flipkart.com/search?q=${searchString}`;
 
         if(user !== 'null' && searchString) {
 
@@ -33,7 +33,8 @@ function AmzSearch() {
               })
           }
 
-        chrome?.tabs?.create({ url: searchUrl });
+        chrome?.tabs?.create({ url: AmzSearchUrl });
+        chrome?.tabs?.create({ url: FlipSearchUrl });
     };
 
     return (
